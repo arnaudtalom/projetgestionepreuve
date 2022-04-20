@@ -1,0 +1,115 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des contacts{% endblock %}
+
+{% block body %}
+   <!--Main container start -->
+	<main class="ttr-wrapper">
+		<div class="container-fluid">
+			<div class="db-breadcrumb">
+				<h4 class="breadcrumb-title">Gestion des utilisateurs</h4>
+				<ul class="db-breadcrumb-list">
+					<li>Ajouter</li>
+				</ul>
+			</div>	
+			<!-- Card -->
+
+			<!-- Card END -->
+			<div class="row">
+				<!-- Your Profile Views Chart -->
+				<div class="col-lg-12 m-b30">
+					<div class="widget-box">
+						<div class="wc-title">
+							<h4>Ajouter un Enseignant</h4>
+						</div>
+						<div class="widget-inner">
+							<form action="/save/prof"  method="POST" class="edit-profile m-b30"  enctype="multipart/form-data">
+								<div class="row">
+									<div class="form-group col-4">
+										<label class="col-form-label">Nom</label>
+										<div>
+											<input class="form-control" type="text" value="" name="nom">
+										</div>
+									</div>
+									<div class="form-group col-4">
+										<label class="col-form-label">Prénom</label>
+										<div>
+											<input class="form-control" type="text" value="" name="prenom">
+										</div>
+									</div>
+									<div class="form-group col-4">
+										<label class="col-form-label">Sexe</label>
+										<div>
+											<select name="sexe" id="cars">
+												<option value="MASCULIN">MASCULIN</option>
+												<option value="FEMININ">FEMININ</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group col-4">
+										<label class="col-form-label">Matricule</label>
+										<div>
+											<input class="form-control" type="text" value="" name="matricule">
+										</div>
+									</div>
+									<div class="form-group col-4">
+										<label class="col-form-label">Date de naissance</label>
+										<div>
+											<input class="form-control" type="date" value="" name="naisance">
+										</div>
+									</div>
+									<div class="form-group col-4">
+										<label class="col-form-label">Specialite</label>
+										<div>
+											<select name="matiere" id="cars">
+												{% for item in matieres %}
+													<option value="{{item.id}}">{{item.nom}}</option>
+												{% endfor %} 
+											</select>
+										</div>
+									</div>
+									<div class="form-group col-4">
+										<label class="col-form-label">username</label>
+										<div>
+											<input class="form-control" type="text" value="" name="username">
+										</div>
+									</div>
+
+									<div class="form-group col-4">
+										<label class="col-form-label">Mot de Passe</label>
+										<div>
+											<input class="form-control" type="password" value="" name="password">
+										</div>
+									</div>
+									<div class="form-group col-4">
+										<label class="col-form-label">Photo</label>
+										<div>
+											<input class="form-control" type="file" value="" name="photo">
+										</div>
+									</div>
+									<div class="seperator"></div>
+									<div class="form-group col-12">
+										<label class="col-form-label">Description</label>
+										<div>
+											<textarea class="form-control" name="description"> </textarea>
+										</div>
+									</div>
+
+
+									<div class="col-12">
+										<button type="reset" class="btn-secondry add-item m-r5">Anuler</button>
+										<button type="submit" class="btn">Sauvegarder</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<!-- Your Profile Views Chart END-->
+			</div>
+
+		</div>
+	</main>
+	<div class="ttr-overlay"></div>
+	<!--End container start -->
+{% endblock %}

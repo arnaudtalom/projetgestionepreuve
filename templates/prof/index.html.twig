@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des contacts{% endblock %}
+
+{% block body %}
+   <!--Main container start -->
+	<main class="ttr-wrapper">
+		<div class="container-fluid">
+			<div class="db-breadcrumb">
+				<h4 class="breadcrumb-title">Gestion des utilisateurs</h4>
+				<ul class="db-breadcrumb-list">
+					<li>Enseignants</li>
+				</ul>
+			</div>	
+			<!-- Card -->
+
+			<!-- Card END -->
+
+
+            <div class="row">
+                <div class="compose-mail">
+                    <a href="/getpageaddprof" class="btn btn-block">Ajouter</a>
+                </div>
+				<!-- Your Profile Views Chart -->
+				<div class="col-lg-12 m-b30">
+					<div class="widget-box">
+						<div class="widget-inner">
+							<div class="card-courses-list admin-review">
+								<div class="card-courses-full-dec">
+									<div class="card-courses-title">
+										<h4>Liste des enseignants </h4>
+									</div>
+                                    {% for item in enseignants %}
+                                        <div class="card-courses-list-bx">
+                                            <ul class="card-courses-view">
+                                                <li class="card-courses-user">
+                                                    <div class="card-courses-user-pic">
+                                                        <img src="/profilpicture/{{item.photo}}" alt=""/>
+                                                    </div>
+                                                    <div class="card-courses-user-info">
+                                                        <h5>{{item.matiere.nom}}</h5>
+                                                        <h4>
+                                                        {% if item.sexe == "MASCULIN" %}
+                                                            Mr
+                                                        {% else %}
+                                                            Md
+                                                        {% endif %}
+                                                        {{item.nom}} {{item.prenom}}
+                                                        </h4>
+                                                    </div>
+                                                </li>
+                                                <li class="card-courses-review">
+                                                    <h5>3 epreuves</h5>
+                                                    <ul class="cours-star">
+                                                        <li class="active"><i class="fa fa-star"></i></li>
+                                                        <li class="active"><i class="fa fa-star"></i></li>
+                                                        <li class="active"><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="card-courses-categories">
+                                                    <h5>Date naissance</h5>
+                                                    <h4>{{item.datenaissance|date("m-d-Y")}}</h4>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="row card-courses-dec">
+                                            <div class="col-md-12">
+                                                <h6 class="m-b10">Maricule : {{item.matricule}}</h6>
+                                                <p>{{item.description}}</p>	
+                                            </div>
+                                            
+                                        </div>
+                                    {% endfor %} 
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				<!-- Your Profile Views Chart END-->
+			</div>
+		</div>
+	</main>
+	<div class="ttr-overlay"></div>
+	<!--End container start -->
+{% endblock %}
